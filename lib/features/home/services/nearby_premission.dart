@@ -15,13 +15,13 @@ class CorePermissionHandler {
       AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
       int androidVersion = androidInfo.version.sdkInt;
 
-      LoggerDebug.logger.t('Android SDK Version: $androidVersion');
+      LoggerDebug.trace('Android SDK Version: $androidVersion');
 
       // 1. Location permissions (CRITICAL for Nearby Connections)
       if (await Permission.location.isDenied) {
         await Permission.location.request();
       }
-      LoggerDebug.logger.t(
+      LoggerDebug.trace(
         'Location Permission: ${await Permission.location.status}',
       );
 
@@ -39,13 +39,13 @@ class CorePermissionHandler {
           Permission.audio, // For audio files
         ].request();
 
-        LoggerDebug.logger.t(
+        LoggerDebug.trace(
           'Photos Permission: ${await Permission.photos.status}',
         );
-        LoggerDebug.logger.t(
+        LoggerDebug.trace(
           'Videos Permission: ${await Permission.videos.status}',
         );
-        LoggerDebug.logger.t(
+        LoggerDebug.trace(
           'Audio Permission: ${await Permission.audio.status}',
         );
 
@@ -58,7 +58,7 @@ class CorePermissionHandler {
         if (await Permission.storage.isDenied) {
           await Permission.storage.request();
         }
-        LoggerDebug.logger.t(
+        LoggerDebug.trace(
           'Storage Permission: ${await Permission.storage.status}',
         );
       }
@@ -72,38 +72,38 @@ class CorePermissionHandler {
           Permission.bluetoothScan,
         ].request();
 
-        LoggerDebug.logger.t(
+        LoggerDebug.trace(
           'Bluetooth Advertise: ${await Permission.bluetoothAdvertise.status}',
         );
-        LoggerDebug.logger.t(
+        LoggerDebug.trace(
           'Bluetooth Connect: ${await Permission.bluetoothConnect.status}',
         );
-        LoggerDebug.logger.t(
+        LoggerDebug.trace(
           'Bluetooth Scan: ${await Permission.bluetoothScan.status}',
         );
 
         // Android 12+ (API 32+) also needs nearby WiFi devices
         if (androidVersion >= 32) {
           await Permission.nearbyWifiDevices.request();
-          LoggerDebug.logger.t(
+          LoggerDebug.trace(
             'Nearby WiFi: ${await Permission.nearbyWifiDevices.status}',
           );
         }
       } else {
         // Legacy Android (below 12)
         await Permission.bluetooth.request();
-        LoggerDebug.logger.t('Bluetooth: ${await Permission.bluetooth.status}');
+        LoggerDebug.trace('Bluetooth: ${await Permission.bluetooth.status}');
       }
 
       // 5. Check if Bluetooth service is enabled
       bool bluetoothEnabled =
           await Permission.bluetooth.serviceStatus.isEnabled;
-      LoggerDebug.logger.t('Bluetooth Service Enabled: $bluetoothEnabled');
+      LoggerDebug.trace('Bluetooth Service Enabled: $bluetoothEnabled');
 
       // 6. Log final permission summary
       logPermissionSummary();
     } catch (e) {
-      LoggerDebug.logger.e('Permission request error: $e');
+      LoggerDebug.error('Permission request error: $e');
     }
   }
 
@@ -139,7 +139,7 @@ class CorePermissionHandler {
     });
     summary += '========================';
 
-    LoggerDebug.logger.i(summary);
+    LoggerDebug.info(summary);
   }
 
   static Future<void> onBluetoothEnabled() async {
