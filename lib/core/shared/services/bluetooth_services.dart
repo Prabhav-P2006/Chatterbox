@@ -32,7 +32,7 @@ class BluetoothServicesGazachat {
         strategy,
         onConnectionInitiated: (String id, ConnectionInfo info) {
           // Called whenever a discoverer requests connection
-          LoggerDebug.logger.w(
+          LoggerDebug.warn(
             'Connection initiated: $id, UserName: ${info.endpointName}',
           );
           // Automatically accept all connections
@@ -40,7 +40,7 @@ class BluetoothServicesGazachat {
         },
         onConnectionResult: (String id, Status status) {
           // Called when connection is accepted/rejected
-          LoggerDebug.logger.w(
+          LoggerDebug.warn(
             'Connection result: $id, Status: ${status.toString()}',
           );
           if (status == Status.CONNECTED) {
@@ -55,13 +55,13 @@ class BluetoothServicesGazachat {
         },
         onDisconnected: (String id) {
           // Called whenever a discoverer disconnects from advertiser
-          LoggerDebug.logger.w('Disconnected from: $id');
+          LoggerDebug.warn('Disconnected from: $id');
           _deviceLostController.add(id);
         },
         serviceId: "free.palestine.gazachat", // uniquely identifies your app
       );
     } catch (exception) {
-      LoggerDebug.logger.e('Error starting advertising: $exception');
+      LoggerDebug.error('Error starting advertising: $exception');
     }
   }
 
@@ -75,7 +75,7 @@ class BluetoothServicesGazachat {
         strategy,
         onEndpointFound: (String id, String userName, String serviceId) {
           // Called whenever an advertiser is found
-          LoggerDebug.logger.w(
+          LoggerDebug.warn(
             'Endpoint found: $id, UserName: $userName, ServiceId: $serviceId',
           );
 
@@ -91,7 +91,7 @@ class BluetoothServicesGazachat {
           // Let the UI or user decide when to connect
         },
         onEndpointLost: (String? id) {
-          LoggerDebug.logger.w('Endpoint lost: $id');
+          LoggerDebug.warn('Endpoint lost: $id');
           if (id != null) {
             _deviceLostController.add(id);
           }
@@ -99,7 +99,7 @@ class BluetoothServicesGazachat {
         serviceId: "free.palestine.gazachat",
       );
     } catch (e) {
-      LoggerDebug.logger.e('Error starting discovery: $e');
+      LoggerDebug.error('Error starting discovery: $e');
     }
   }
 
@@ -107,9 +107,9 @@ class BluetoothServicesGazachat {
   Future<void> stopAdvertising() async {
     try {
       await Nearby().stopAdvertising();
-      LoggerDebug.logger.d('Stopped advertising');
+      LoggerDebug.info('Stopped advertising');
     } catch (e) {
-      LoggerDebug.logger.e('Error stopping advertising: $e');
+      LoggerDebug.error('Error stopping advertising: $e');
     }
   }
 
@@ -117,9 +117,9 @@ class BluetoothServicesGazachat {
   Future<void> stopDiscovery() async {
     try {
       await Nearby().stopDiscovery();
-      LoggerDebug.logger.d('Stopped discovery');
+      LoggerDebug.info('Stopped discovery');
     } catch (e) {
-      LoggerDebug.logger.e('Error stopping discovery: $e');
+      LoggerDebug.error('Error stopping discovery: $e');
     }
   }
 
@@ -130,14 +130,14 @@ class BluetoothServicesGazachat {
         userName,
         deviceId,
         onConnectionInitiated: (String id, ConnectionInfo info) {
-          LoggerDebug.logger.w(
+          LoggerDebug.warn(
             'Connection initiated to: $id, UserName: ${info.endpointName}',
           );
           // Automatically accept the connection
           acceptConnection(id);
         },
         onConnectionResult: (String id, Status status) {
-          LoggerDebug.logger.w('Connection result: $id, Status: $status');
+          LoggerDebug.warn('Connection result: $id, Status: $status');
           if (status == Status.CONNECTED) {
             final device = NearbayDeviceInfo(
               id: id,
@@ -148,12 +148,12 @@ class BluetoothServicesGazachat {
           }
         },
         onDisconnected: (String id) {
-          LoggerDebug.logger.w('Disconnected from: $id');
+          LoggerDebug.warn('Disconnected from: $id');
           _deviceLostController.add(id);
         },
       );
     } catch (e) {
-      LoggerDebug.logger.e('Error requesting connection: $e');
+      LoggerDebug.error('Error requesting connection: $e');
     }
   }
 
@@ -166,7 +166,7 @@ class BluetoothServicesGazachat {
           // Handle received messages
           if (payload.type == PayloadType.BYTES) {
             final String message = String.fromCharCodes(payload.bytes!);
-            LoggerDebug.logger.d('Message received from $endpointId: $message');
+            LoggerDebug.info('Message received from $endpointId: $message');
 
             // Add received message to stream
             _messageReceivedController.add({
@@ -176,9 +176,9 @@ class BluetoothServicesGazachat {
           }
         },
       );
-      LoggerDebug.logger.d('Accepted connection from: $deviceId');
+      LoggerDebug.info('Accepted connection from: $deviceId');
     } catch (e) {
-      LoggerDebug.logger.e('Error accepting connection: $e');
+      LoggerDebug.error('Error accepting connection: $e');
     }
   }
 
@@ -187,10 +187,10 @@ class BluetoothServicesGazachat {
     try {
       final Uint8List bytes = Uint8List.fromList(message.codeUnits);
       await Nearby().sendBytesPayload(deviceId, bytes);
-      LoggerDebug.logger.d('Message sent to $deviceId: $message');
+      LoggerDebug.info('Message sent to $deviceId: $message');
       return true;
     } catch (e) {
-      LoggerDebug.logger.e('Error sending message to $deviceId: $e');
+      LoggerDebug.error('Error sending message to $deviceId: $e');
       return false;
     }
   }
@@ -200,9 +200,9 @@ class BluetoothServicesGazachat {
     try {
       final Uint8List bytes = Uint8List.fromList(message.codeUnits);
       await Nearby().sendBytesPayload('', bytes); // Empty string sends to all
-      LoggerDebug.logger.d('Message sent to all connected devices: $message');
+      LoggerDebug.info('Message sent to all connected devices: $message');
     } catch (e) {
-      LoggerDebug.logger.e('Error sending message to all devices: $e');
+      LoggerDebug.error('Error sending message to all devices: $e');
     }
   }
 
@@ -214,4 +214,3 @@ class BluetoothServicesGazachat {
     _messageReceivedController.close();
   }
 }
-
