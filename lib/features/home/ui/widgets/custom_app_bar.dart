@@ -103,7 +103,7 @@ class _CustomAppBarState extends ConsumerState<CustomAppBar> {
           },
         ),
       ],
-      leading: Container(
+      leading: SizedBox(
         width: 80.w, // Adjust width to accommodate both buttons
         child: Row(
           children: [

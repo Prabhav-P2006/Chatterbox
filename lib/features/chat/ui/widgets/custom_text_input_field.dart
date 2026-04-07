@@ -11,7 +11,6 @@ import 'package:gazachat/features/chat/data/enums/message_status.dart';
 import 'package:gazachat/features/chat/data/enums/message_type.dart';
 import 'package:gazachat/features/chat/data/models/chat_message_model.dart';
 import 'package:gazachat/features/chat/ui/widgets/attachment_options.dart';
-import 'package:gazachat/features/home/providrs/user_data_provider.dart';
 import 'package:location/location.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

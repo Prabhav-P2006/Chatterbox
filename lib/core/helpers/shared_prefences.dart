@@ -209,4 +209,3 @@ class SharedPrefHelper {
     await flutterSecureStorage.deleteAll();
   }
 }
-

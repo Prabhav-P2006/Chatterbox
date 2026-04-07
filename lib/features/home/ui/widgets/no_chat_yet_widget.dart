@@ -38,7 +38,7 @@ class NoChatYet extends StatelessWidget {
           ),
           SizedBox(height: 8.h),
           Text(
-          context.tr("no_chat_description"),
+            context.tr("no_chat_description"),
             style: TextStyle(
               fontSize: 14.sp,
               color: Colors.white70, // Slightly transparent white

@@ -351,7 +351,7 @@ class UserDataNotifier extends StateNotifier<AsyncValue<UserData>> {
         loading: () => [],
         error: (error, stackTrace) => [],
       );
-    } catch (error, stackTrace) {
+    } catch (error) {
       LoggerDebug.logger.e('Error getting favorite chats: $error');
       return [];
     }
@@ -370,7 +370,7 @@ class UserDataNotifier extends StateNotifier<AsyncValue<UserData>> {
         loading: () => [],
         error: (error, stackTrace) => [],
       );
-    } catch (error, stackTrace) {
+    } catch (error) {
       LoggerDebug.logger.e('Error getting blocked chats: $error');
       return [];
     }

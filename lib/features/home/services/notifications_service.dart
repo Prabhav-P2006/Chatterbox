@@ -128,7 +128,7 @@ class NotificationService {
 
           // Sound and vibration
           playSound: true,
-          sound: const RawResourceAndroidNotificationSound('notification'),
+          sound: RawResourceAndroidNotificationSound('notification'),
           enableVibration: true,
 
           // LED and visual

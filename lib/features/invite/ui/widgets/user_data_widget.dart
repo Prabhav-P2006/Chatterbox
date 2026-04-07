@@ -37,13 +37,10 @@ class UserDataRef extends StatelessWidget {
               // Logic to copy UUID to clipboard
               Clipboard.setData(ClipboardData(text: uuid));
             },
-            child: Icon(
-              Icons.copy,
-              size: 24.sp,
-            ),
+            child: Icon(Icons.copy, size: 24.sp),
           ),
         ),
-             ],
+      ],
     );
   }
 }

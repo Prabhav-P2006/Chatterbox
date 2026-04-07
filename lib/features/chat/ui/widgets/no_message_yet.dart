@@ -23,7 +23,7 @@ class NoMessageYet extends StatelessWidget {
             ),
           ),
           Text(
-          textAlign: TextAlign.center,
+            textAlign: TextAlign.center,
             context.tr("no_message_desciption"),
             style: CustomTextStyles.font16GrayRegular,
           ),

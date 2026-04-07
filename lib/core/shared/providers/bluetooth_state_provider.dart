@@ -38,4 +38,3 @@ final isBluetoothOnStreamProvider = Provider<bool>((ref) {
     error: (_, __) => false, // Default to false on error
   );
 });
-

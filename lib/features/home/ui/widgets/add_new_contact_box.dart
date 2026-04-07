@@ -46,4 +46,3 @@ class AddNewContactBox extends StatelessWidget {
     );
   }
 }
-

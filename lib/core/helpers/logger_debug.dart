@@ -11,6 +11,7 @@ class LoggerDebug {
       printTime: true,
     ),
   );
+
   /// Standard info logging
   static void info(String message) => logger.i(message);
 
@@ -18,7 +19,7 @@ class LoggerDebug {
   static void warn(String message) => logger.w(message);
 
   /// Error logging for failed operations
-  static void error(String message, [dynamic error, StackTrace? stack]) => 
+  static void error(String message, [dynamic error, StackTrace? stack]) =>
       logger.e(message, error: error, stackTrace: stack);
 
   /// Trace logging for detailed debug info

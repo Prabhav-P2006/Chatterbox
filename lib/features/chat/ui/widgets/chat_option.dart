@@ -140,7 +140,7 @@ class _ChatOptionState extends ConsumerState<ChatOption> {
                   ref
                       .read(userDataProvider.notifier)
                       .toggleBlockedStatus(widget.uuid2P);
-                      context.pop(); // Close the bottom sheet after toggling
+                  context.pop(); // Close the bottom sheet after toggling
                 },
               ),
               ListTile(

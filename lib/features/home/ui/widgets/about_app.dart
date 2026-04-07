@@ -5,7 +5,7 @@ import 'package:gazachat/core/theming/styles.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 class AboutApp extends StatefulWidget {
-  AboutApp({super.key});
+  const AboutApp({super.key});
 
   @override
   State<AboutApp> createState() => _AboutAppState();

@@ -11,10 +11,10 @@ class LanguageChangeDialog extends StatefulWidget {
   final Function(String) onLanguageChanged;
 
   const LanguageChangeDialog({
-    Key? key,
+    super.key,
     required this.currentLanguage,
     required this.onLanguageChanged,
-  }) : super(key: key);
+  });
 
   @override
   State<LanguageChangeDialog> createState() => _LanguageChangeDialogState();

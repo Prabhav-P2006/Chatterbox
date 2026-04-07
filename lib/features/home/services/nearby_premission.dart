@@ -45,9 +45,7 @@ class CorePermissionHandler {
         LoggerDebug.trace(
           'Videos Permission: ${await Permission.videos.status}',
         );
-        LoggerDebug.trace(
-          'Audio Permission: ${await Permission.audio.status}',
-        );
+        LoggerDebug.trace('Audio Permission: ${await Permission.audio.status}');
 
         // If you need full file system access (high-risk permission)
         // Uncomment the following lines only if absolutely necessary
