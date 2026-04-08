@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gazachat/core/theming/colors.dart';
-import 'package:gazachat/core/theming/styles.dart';
+import 'package:chatterbox/core/theming/colors.dart';
+import 'package:chatterbox/core/theming/styles.dart';
 
 class FeatureUnavailableDialog extends StatelessWidget {
   final String title;

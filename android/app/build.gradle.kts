@@ -6,8 +6,8 @@ plugins {
 }
 
 android {
-    namespace = "free.palestine.gazachat"
-    compileSdk = 35 
+    namespace = "free.palestine.chatterbox"
+    compileSdk = 36 
     ndkVersion = "27.0.12077973"
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
@@ -21,7 +21,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "free.palestine.gazachat"
+        applicationId = "free.palestine.chatterbox"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
@@ -38,7 +38,7 @@ android {
             resValue(
                 type = "string",
                 name = "app_name",
-                value = "Gazachat Beta")
+                value = "Chatterbox Beta")
 
 
         }
@@ -47,7 +47,7 @@ android {
             resValue(
                 type = "string",
                 name = "app_name",
-                value = "Gazachat")
+                value = "Chatterbox")
         }
     }
 

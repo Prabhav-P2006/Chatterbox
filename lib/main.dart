@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gazachat/core/helpers/extensions.dart';
-import 'package:gazachat/core/helpers/shared_prefences.dart';
-import 'package:gazachat/core/routing/app_router.dart';
-import 'package:gazachat/core/shared/models/all_chat_model.dart';
-import 'package:gazachat/features/home/services/nearby_premission.dart';
-import 'package:gazachat/features/home/services/notifications_service.dart';
-import 'package:gazachat/gazachat_app.dart';
+import 'package:chatterbox/core/helpers/extensions.dart';
+import 'package:chatterbox/core/helpers/shared_prefences.dart';
+import 'package:chatterbox/core/routing/app_router.dart';
+import 'package:chatterbox/core/shared/models/all_chat_model.dart';
+import 'package:chatterbox/features/home/services/nearby_premission.dart';
+import 'package:chatterbox/features/home/services/notifications_service.dart';
+import 'package:chatterbox/chatterbox_app.dart';
 import 'package:uuid/uuid.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -28,7 +28,7 @@ void main() async {
           'assets/translations', // <-- change the path of the translation files
       fallbackLocale: Locale('ar'),
       startLocale: Locale('ar'),
-      child: ProviderScope(child: GazachatApp(appRouter: AppRouter())),
+      child: ProviderScope(child: ChatterboxApp(appRouter: AppRouter())),
     ),
   );
 }
@@ -48,7 +48,7 @@ Future<void> isUserLoggedIn() async {
 
     if (username.isNullOrEmpty()) {
       // If username is null or empty, generate a new username
-      final String newUsername = RandomUsernameGenerator.generateGazaUsername();
+      final String newUsername = RandomUsernameGenerator.generateChatterboxUsername();
       await SharedPrefHelper.setData('username', newUsername);
       print('Generated new username: $newUsername');
     }
@@ -103,7 +103,7 @@ Future<void> isUserLoggedIn() async {
     try {
       await SharedPrefHelper.setData(
         'username',
-        RandomUsernameGenerator.generateGazaUsername(),
+        RandomUsernameGenerator.generateChatterboxUsername(),
       );
       await SharedPrefHelper.setData('uuid', const Uuid().v4());
 

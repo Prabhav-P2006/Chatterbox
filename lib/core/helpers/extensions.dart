@@ -84,10 +84,10 @@ extension RandomUsernameGenerator on String {
     return username;
   }
 
-  /// Generates a Gaza-themed random username
-  static String generateGazaUsername() {
-    final List<String> gazaPrefixes = [
-      'gaza',
+  /// Generates a Chatterbox-themed random username
+  static String generateChatterboxUsername() {
+    final List<String> chatterboxPrefixes = [
+      'chatterbox',
       'palestine',
       'free',
       'hope',
@@ -98,7 +98,7 @@ extension RandomUsernameGenerator on String {
     ];
 
     final Random random = Random();
-    final String prefix = gazaPrefixes[random.nextInt(gazaPrefixes.length)];
+    final String prefix = chatterboxPrefixes[random.nextInt(chatterboxPrefixes.length)];
     final String randomPart = generateRandomUsername(
       length: 4,
       includeNumbers: true,

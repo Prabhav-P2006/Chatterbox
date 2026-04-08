@@ -1,4 +1,4 @@
-package free.palestine.gazachat
+package free.palestine.chatterbox
 
 import io.flutter.embedding.android.FlutterActivity
 

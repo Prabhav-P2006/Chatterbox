@@ -1,12 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gazachat/core/helpers/extensions.dart';
-import 'package:gazachat/core/routing/routes.dart';
-import 'package:gazachat/core/theming/colors.dart';
-import 'package:gazachat/core/theming/styles.dart';
-import 'package:gazachat/features/home/services/nearby_premission.dart';
-import 'package:gazachat/features/home/services/notifications_service.dart';
+import 'package:chatterbox/core/helpers/extensions.dart';
+import 'package:chatterbox/core/routing/routes.dart';
+import 'package:chatterbox/core/theming/colors.dart';
+import 'package:chatterbox/core/theming/styles.dart';
+import 'package:chatterbox/features/home/services/nearby_premission.dart';
+import 'package:chatterbox/features/home/services/notifications_service.dart';
 import 'package:lottie/lottie.dart';
 
 class OnBluetoothDisableScreen extends StatefulWidget {

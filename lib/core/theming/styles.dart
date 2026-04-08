@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gazachat/core/helpers/logger_debug.dart';
-import 'package:gazachat/core/theming/font_weight_helper.dart';
+import 'package:chatterbox/core/helpers/logger_debug.dart';
+import 'package:chatterbox/core/theming/font_weight_helper.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomTextStyles {

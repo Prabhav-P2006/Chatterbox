@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:typed_data';
-import 'package:gazachat/core/helpers/logger_debug.dart';
-import 'package:gazachat/core/shared/models/nearbay_device_info.dart';
+import 'package:chatterbox/core/helpers/logger_debug.dart';
+import 'package:chatterbox/core/shared/models/nearbay_device_info.dart';
 import 'package:nearby_connections/nearby_connections.dart';
 
-class BluetoothServicesGazachat {
+class BluetoothServicesChatterbox {
   // Streams for device events
   final StreamController<NearbayDeviceInfo> _deviceFoundController =
       StreamController<NearbayDeviceInfo>.broadcast();
@@ -48,7 +48,7 @@ class BluetoothServicesGazachat {
             final device = NearbayDeviceInfo(
               id: id,
               uuid: '', // We'll get this from the connection info or messages
-              serviceId: "free.palestine.gazachat",
+              serviceId: "free.palestine.chatterbox",
             );
             _deviceConnectedController.add(device);
           }
@@ -58,7 +58,7 @@ class BluetoothServicesGazachat {
           LoggerDebug.warn('Disconnected from: $id');
           _deviceLostController.add(id);
         },
-        serviceId: "free.palestine.gazachat", // uniquely identifies your app
+        serviceId: "free.palestine.chatterbox", // uniquely identifies your app
       );
     } catch (exception) {
       LoggerDebug.error('Error starting advertising: $exception');
@@ -96,7 +96,7 @@ class BluetoothServicesGazachat {
             _deviceLostController.add(id);
           }
         },
-        serviceId: "free.palestine.gazachat",
+        serviceId: "free.palestine.chatterbox",
       );
     } catch (e) {
       LoggerDebug.error('Error starting discovery: $e');
@@ -142,7 +142,7 @@ class BluetoothServicesGazachat {
             final device = NearbayDeviceInfo(
               id: id,
               uuid: userName, // Use the username passed in
-              serviceId: "free.palestine.gazachat",
+              serviceId: "free.palestine.chatterbox",
             );
             _deviceConnectedController.add(device);
           }

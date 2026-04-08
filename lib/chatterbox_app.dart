@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gazachat/core/routing/app_router.dart';
-import 'package:gazachat/core/shared/providers/bluetooth_state_provider.dart';
-import 'package:gazachat/features/home/ui/screens/home_page.dart';
+import 'package:chatterbox/core/routing/app_router.dart';
+import 'package:chatterbox/core/shared/providers/bluetooth_state_provider.dart';
+import 'package:chatterbox/features/home/ui/screens/home_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gazachat/features/home/ui/screens/on_bluetooth_disable_screen.dart';
+import 'package:chatterbox/features/home/ui/screens/on_bluetooth_disable_screen.dart';
 
-class GazachatApp extends ConsumerWidget {
+class ChatterboxApp extends ConsumerWidget {
   final AppRouter appRouter;
 
-  const GazachatApp({super.key, required this.appRouter});
+  const ChatterboxApp({super.key, required this.appRouter});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

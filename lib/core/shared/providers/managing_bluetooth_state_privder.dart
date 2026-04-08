@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gazachat/core/helpers/logger_debug.dart';
-import 'package:gazachat/core/helpers/shared_prefences.dart';
-import 'package:gazachat/core/shared/models/nearbay_device_info.dart';
-import 'package:gazachat/core/shared/services/bluetooth_services.dart';
+import 'package:chatterbox/core/helpers/logger_debug.dart';
+import 'package:chatterbox/core/helpers/shared_prefences.dart';
+import 'package:chatterbox/core/shared/models/nearbay_device_info.dart';
+import 'package:chatterbox/core/shared/services/bluetooth_services.dart';
 
 // Provider for managing Bluetooth state with discovered and connected devices
 final nearbayStateProvider =
@@ -50,8 +50,8 @@ class BluetoothStateNotifier extends StateNotifier<BluetoothState> {
     state = state.copyWith(messageStream: _bluetoothService.onMessageReceived);
   }
 
-  final BluetoothServicesGazachat _bluetoothService =
-      BluetoothServicesGazachat();
+  final BluetoothServicesChatterbox _bluetoothService =
+      BluetoothServicesChatterbox();
 
   StreamSubscription<NearbayDeviceInfo>? _deviceFoundSubscription;
   StreamSubscription<String>? _deviceLostSubscription;

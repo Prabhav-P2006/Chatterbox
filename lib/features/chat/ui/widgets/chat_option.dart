@@ -1,13 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gazachat/core/helpers/extensions.dart';
-import 'package:gazachat/core/routing/routes.dart';
-import 'package:gazachat/core/shared/models/user_chat_model.dart';
-import 'package:gazachat/core/theming/styles.dart';
+import 'package:chatterbox/core/helpers/extensions.dart';
+import 'package:chatterbox/core/routing/routes.dart';
+import 'package:chatterbox/core/shared/models/user_chat_model.dart';
+import 'package:chatterbox/core/theming/styles.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gazachat/features/chat/ui/widgets/rename_chat.dart';
-import 'package:gazachat/features/home/providrs/user_data_provider.dart';
+import 'package:chatterbox/features/chat/ui/widgets/rename_chat.dart';
+import 'package:chatterbox/features/home/providrs/user_data_provider.dart';
 
 class ChatOption extends ConsumerStatefulWidget {
   const ChatOption({super.key, required this.uuid2P});
@@ -96,51 +96,6 @@ class _ChatOptionState extends ConsumerState<ChatOption> {
                       );
                     },
                   );
-                },
-              ),
-              ListTile(
-                leading: Icon(
-                  userData2P.isFavorite == true
-                      ? Icons.favorite
-                      : Icons.favorite_border,
-                  color: userData2P.isFavorite == true
-                      ? Colors.red
-                      : Colors.white,
-                  size: 24.sp,
-                ),
-                title: Text(
-                  userData2P.isFavorite == true
-                      ? context.tr('remove_from_favorites')
-                      : context.tr('add_to_favorites'),
-                  style: CustomTextStyles.font16WhiteRegular,
-                ),
-                onTap: () {
-                  ref
-                      .read(userDataProvider.notifier)
-                      .toggleFavoriteStatus(widget.uuid2P);
-                },
-              ),
-              ListTile(
-                leading: Icon(
-                  userData2P.isBlocked == true
-                      ? Icons.block
-                      : Icons.block_outlined,
-                  color: userData2P.isBlocked == true
-                      ? Colors.red
-                      : Colors.white,
-                  size: 24.sp,
-                ),
-                title: Text(
-                  userData2P.isBlocked == true
-                      ? context.tr("unblock_contact")
-                      : context.tr('block_contact'),
-                  style: CustomTextStyles.font16WhiteRegular,
-                ),
-                onTap: () {
-                  ref
-                      .read(userDataProvider.notifier)
-                      .toggleBlockedStatus(widget.uuid2P);
-                  context.pop(); // Close the bottom sheet after toggling
                 },
               ),
               ListTile(

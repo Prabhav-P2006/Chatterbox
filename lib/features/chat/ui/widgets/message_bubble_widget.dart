@@ -1,11 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gazachat/core/theming/colors.dart';
-import 'package:gazachat/core/theming/styles.dart';
-import 'package:gazachat/features/chat/data/enums/message_status.dart';
-import 'package:gazachat/features/chat/data/enums/message_type.dart';
-import 'package:gazachat/features/chat/data/models/chat_message_model.dart';
+import 'package:chatterbox/core/theming/colors.dart';
+import 'package:chatterbox/core/theming/styles.dart';
+import 'package:chatterbox/features/chat/data/enums/message_status.dart';
+import 'package:chatterbox/features/chat/data/enums/message_type.dart';
+import 'package:chatterbox/features/chat/data/models/chat_message_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MessageBubble extends StatelessWidget {

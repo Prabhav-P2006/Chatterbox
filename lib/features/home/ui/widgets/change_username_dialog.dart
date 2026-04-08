@@ -2,8 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gazachat/core/theming/colors.dart';
-import 'package:gazachat/features/home/providrs/user_data_provider.dart';
+import 'package:chatterbox/core/theming/colors.dart';
+import 'package:chatterbox/features/home/providrs/user_data_provider.dart';
 
 class ChangeUsernameDialog extends ConsumerStatefulWidget {
   const ChangeUsernameDialog({

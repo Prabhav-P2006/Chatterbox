@@ -1,6 +1,6 @@
 {
-    "name": "gazachat",
-    "short_name": "gazachat",
+    "name": "chatterbox",
+    "short_name": "chatterbox",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

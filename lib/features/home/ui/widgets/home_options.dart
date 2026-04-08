@@ -1,13 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gazachat/core/helpers/extensions.dart';
-import 'package:gazachat/core/theming/styles.dart';
-import 'package:gazachat/core/widgets/feature_unavailable_dialog.dart';
-import 'package:gazachat/core/widgets/loading_animation.dart';
-import 'package:gazachat/features/home/providrs/user_data_provider.dart';
-import 'package:gazachat/features/home/ui/widgets/change_lang_dialog.dart';
-import 'package:gazachat/features/home/ui/widgets/change_username_dialog.dart';
+import 'package:chatterbox/core/helpers/extensions.dart';
+import 'package:chatterbox/core/theming/styles.dart';
+import 'package:chatterbox/core/widgets/feature_unavailable_dialog.dart';
+import 'package:chatterbox/core/widgets/loading_animation.dart';
+import 'package:chatterbox/features/home/providrs/user_data_provider.dart';
+import 'package:chatterbox/features/home/ui/widgets/change_username_dialog.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class UserSetting extends ConsumerWidget {
@@ -35,26 +34,6 @@ class UserSetting extends ConsumerWidget {
               ),
             ),
             // Options
-            ListTile(
-              leading: Image.asset(
-                'assets/icons/language-square.png',
-                width: 24.w,
-                height: 24.h,
-              ),
-              title: Text(
-                context.tr('change_language'),
-                style: CustomTextStyles.font16WhiteRegular,
-              ),
-              onTap: () {
-                showLanguageChangeDialog(
-                  context: context,
-                  currentLanguage: context.locale.toString(),
-                  onLanguageChanged: (String lang) {
-                    context.setLocale(Locale(lang));
-                  },
-                );
-              },
-            ),
             ListTile(
               leading: Image.asset(
                 'assets/icons/brush.png',

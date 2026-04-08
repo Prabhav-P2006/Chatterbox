@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gazachat/core/helpers/logger_debug.dart';
-import 'package:gazachat/core/shared/providers/managing_bluetooth_state_privder.dart';
-import 'package:gazachat/features/chat/data/enums/message_status.dart';
-import 'package:gazachat/features/chat/data/enums/message_type.dart';
-import 'package:gazachat/features/chat/data/models/chat_message_model.dart';
-import 'package:gazachat/features/home/providrs/user_data_provider.dart';
+import 'package:chatterbox/core/helpers/logger_debug.dart';
+import 'package:chatterbox/core/shared/providers/managing_bluetooth_state_privder.dart';
+import 'package:chatterbox/features/chat/data/enums/message_status.dart';
+import 'package:chatterbox/features/chat/data/enums/message_type.dart';
+import 'package:chatterbox/features/chat/data/models/chat_message_model.dart';
+import 'package:chatterbox/features/home/providrs/user_data_provider.dart';
 
 // Provider to handle incoming Bluetooth messages
 final messageHandlerProvider = Provider<MessageHandler>((ref) {

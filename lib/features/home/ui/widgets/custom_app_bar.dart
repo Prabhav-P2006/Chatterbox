@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gazachat/core/theming/colors.dart';
-import 'package:gazachat/features/home/providrs/user_data_provider.dart';
-import 'package:gazachat/features/home/ui/widgets/about_app.dart';
-import 'package:gazachat/features/home/ui/widgets/home_options.dart';
-import 'package:gazachat/features/home/ui/widgets/my_qr_box.dart';
+import 'package:chatterbox/core/theming/colors.dart';
+import 'package:chatterbox/features/home/ui/widgets/about_app.dart';
+import 'package:chatterbox/features/home/ui/widgets/home_options.dart';
+import 'package:chatterbox/features/home/ui/widgets/my_qr_box.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CustomAppBar extends ConsumerStatefulWidget
@@ -20,9 +19,6 @@ class CustomAppBar extends ConsumerStatefulWidget
 }
 
 class _CustomAppBarState extends ConsumerState<CustomAppBar> {
-  bool isFavorite = false;
-  bool isBlocked = false;
-
   void _showUserSettings(BuildContext context) {
     showModalBottomSheet(
       context: context,
@@ -69,30 +65,6 @@ class _CustomAppBarState extends ConsumerState<CustomAppBar> {
       centerTitle: true,
       actions: [
         IconButton(
-          icon: Icon(
-            isFavorite ? Icons.favorite : Icons.favorite_border,
-            color: isFavorite ? Colors.red : ColorsManager.whiteColor,
-            size: 25.sp,
-          ),
-          onPressed: () {
-            // Handle favorite action
-            // For example, toggle favorite state
-
-            setState(() {
-              if (isFavorite) {
-                ref.read(userDataProvider.notifier).loadUserData();
-              } else {
-                ref.read(userDataProvider.notifier).filterFavoriteChats();
-              }
-              isFavorite = !isFavorite;
-            });
-          },
-        ),
-        SizedBox(
-          width: 15.w, // Add some space between buttons
-        ),
-        // add image assest in my button
-        IconButton(
           icon: Image.asset(
             'assets/icons/setting.png',
             width: 25.w,
@@ -102,50 +74,21 @@ class _CustomAppBarState extends ConsumerState<CustomAppBar> {
             _showUserSettings(context);
           },
         ),
+        SizedBox(
+          width: 15.w, // Add some space between buttons
+        ),
       ],
-      leading: SizedBox(
-        width: 80.w, // Adjust width to accommodate both buttons
-        child: Row(
-          children: [
-            // Info/About button
-            Expanded(
-              child: IconButton(
-                onPressed: () {
-                  _showAboutApp(context);
-                },
-                icon: Image.asset(
-                  "assets/icons/info-circle.png",
-                  width: 25.w,
-                  height: 25.h,
-                ),
-              ),
-            ),
-
-            // Block button
-            Expanded(
-              child: IconButton(
-                icon: Icon(
-                  isBlocked ? Icons.block : Icons.block_rounded,
-                  color: isBlocked ? Colors.red : ColorsManager.whiteColor,
-                  size: 25.sp,
-                ),
-                onPressed: () {
-                  setState(() {
-                    if (isBlocked) {
-                      ref.read(userDataProvider.notifier).loadUserData();
-                    } else {
-                      ref.read(userDataProvider.notifier).filterBlockedChats();
-                    }
-                    isBlocked = !isBlocked;
-                  });
-                },
-              ),
-            ),
-          ],
+      leading: IconButton(
+        onPressed: () {
+          _showAboutApp(context);
+        },
+        icon: Image.asset(
+          "assets/icons/info-circle.png",
+          width: 25.w,
+          height: 25.h,
         ),
       ),
-      leadingWidth: 120.w,
-
+      leadingWidth: 80.w,
       toolbarHeight: 80.h,
     );
   }

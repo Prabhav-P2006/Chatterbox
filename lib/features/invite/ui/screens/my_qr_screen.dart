@@ -1,14 +1,14 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gazachat/core/helpers/extensions.dart';
-import 'package:gazachat/core/theming/colors.dart';
-import 'package:gazachat/core/theming/styles.dart';
-import 'package:gazachat/core/widgets/loading_animation.dart';
-import 'package:gazachat/features/home/providrs/user_data_provider.dart';
-import 'package:gazachat/features/invite/ui/widgets/error_loaded_qr.dart';
+import 'package:chatterbox/core/helpers/extensions.dart';
+import 'package:chatterbox/core/theming/colors.dart';
+import 'package:chatterbox/core/theming/styles.dart';
+import 'package:chatterbox/core/widgets/loading_animation.dart';
+import 'package:chatterbox/features/home/providrs/user_data_provider.dart';
+import 'package:chatterbox/features/invite/ui/widgets/error_loaded_qr.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gazachat/features/invite/ui/widgets/show_all_data.dart';
+import 'package:chatterbox/features/invite/ui/widgets/show_all_data.dart';
 
 class MyQrScreen extends ConsumerStatefulWidget {
   const MyQrScreen({super.key});

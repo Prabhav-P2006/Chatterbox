@@ -1,10 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gazachat/core/helpers/logger_debug.dart';
-import 'package:gazachat/core/theming/styles.dart';
-import 'package:gazachat/core/widgets/feature_unavailable_dialog.dart';
-import 'package:gazachat/core/widgets/loading_animation.dart';
+import 'package:chatterbox/core/helpers/logger_debug.dart';
+import 'package:chatterbox/core/theming/styles.dart';
+import 'package:chatterbox/core/widgets/feature_unavailable_dialog.dart';
+import 'package:chatterbox/core/widgets/loading_animation.dart';
 import 'package:location/location.dart';
 
 class AttachmentOptions extends StatefulWidget {

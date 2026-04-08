@@ -1,11 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gazachat/core/theming/colors.dart';
-import 'package:gazachat/core/theming/styles.dart';
+import 'package:chatterbox/core/theming/colors.dart';
+import 'package:chatterbox/core/theming/styles.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gazachat/features/home/ui/widgets/bluetooth_status_indicator.dart';
-import 'package:gazachat/features/home/ui/widgets/connections_section_widget.dart';
+import 'package:chatterbox/features/home/ui/widgets/bluetooth_status_indicator.dart';
+import 'package:chatterbox/features/home/ui/widgets/connections_section_widget.dart';
 
 class Header extends ConsumerStatefulWidget {
   const Header({super.key, required this.userName, this.connectionCount = 0});
