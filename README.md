@@ -10,12 +10,12 @@ In situations where internet connectivity is unavailable (e.g., remote areas, di
 
 ## 🔧 Methodology & Features
 - **BLE Mesh Networking:** Utilized GATT-based peer discovery and multi-hop packet relaying for offline communication.
-- **End-to-End Encryption:** Integrated AES-256 encryption with compact binary packet protocols to keep all offline messages secure.
+- **End-to-End Encryption:** Integrated Noise XX sessions using X25519 key exchange, ChaChaPoly authenticated encryption, and SHA-256/HKDF with compact binary packet protocols to keep offline messages secure.
 - **Adaptive Connection Management:** Engineered resilient network topologies and background synchronization pipelines to maintain connections across shifting device configurations.
 - **Flood-Based Routing:** Optimized message propagation algorithms to drastically reduce latency and improve delivery reliability across unstable local mesh networks.
 
 ## 🛠 Tools & Technologies
 - **Framework:** Flutter / Dart
 - **Networking:** Bluetooth Low Energy (BLE), Mesh Networking
-- **Security:** AES-256 Encryption
+- **Security:** Noise_XX_25519_ChaChaPoly_SHA256, X25519, Ed25519 signatures
 - **Data Protocols:** Compact Binary Packet Protocols
